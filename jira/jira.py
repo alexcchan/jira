@@ -6,6 +6,8 @@
 
 import base64
 import httplib2
+import io
+import os
 import re
 import urllib
 try:
@@ -91,6 +93,27 @@ class Jira(object):
                 else:
                     # TODO throw error
                     pass
+            elif isinstance(body, file):
+                BOUNDARY = 'JIRAJIRABOBIRA'
+                headers['Content-Type'] = 'multipart/form-data; boundary=%s' % BOUNDARY
+                headers['X-Atlassian-Token'] = 'nocheck'
+                file_name = os.path.basename(body.name)
+                file_content = body.read()
+                body_lines = ['--' + BOUNDARY,
+                        'Content-Disposition: form-data; name="file"; filename="%s"' % file_name,
+                        'Content-Type: application/octet-stream',
+                        '',
+                        file_content,
+                        '--' + BOUNDARY + '--',
+                        '']
+                b = io.BytesIO()
+                for body_line in body_lines:
+                    if isinstance(body_line,unicode):
+                        b.write(body_line.encode('utf-8'))
+                    else:
+                        b.write(body_line)
+                    b.write(b'\r\n')
+                body = b.getvalue()
         response,content = self.client.request(url, method=method, body=body,
                 headers=headers)
         return self._response_handler(response, content, status)

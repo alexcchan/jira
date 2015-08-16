@@ -36,6 +36,13 @@ mapping_table = {
         'valid_params': ['jql','startAt','maxResults']
     },
 
+    # Issue attachments
+    'add_attachment': {
+        'method': 'POST',
+        'path': '/issue/{{issue}}/attachments',
+        'content_type': 'multipart/form-data'
+    },
+
     # Issue comments
     'list_comments': {
         'path': '/issue/{{issue}}/comment'
