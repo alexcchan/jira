@@ -45,7 +45,8 @@ mapping_table = {
 
     # Issue comments
     'list_comments': {
-        'path': '/issue/{{issue}}/comment'
+        'path': '/issue/{{issue}}/comment',
+        'valid_params': ['startAt','maxResults']
     },
     'add_comment': {
         'method': 'POST',
@@ -63,6 +64,16 @@ mapping_table = {
         'method': 'DELETE',
         'path': '/issue/{{issue}}/comment/{{comment}}',
         'status': 204
+    },
+
+    # Issue create metadata
+    'get_create_metadata':  {
+        'path': '/issue/createmeta'
+    },
+
+    # Issue edit metadata
+    'get_edit_metadata':  {
+        'path': '/issue/{{issue}}/editmeta'
     },
 
     # Issue link types
@@ -118,6 +129,11 @@ mapping_table = {
         'status': 204
     },
 
+    # Issue types
+    'list_issue_types': {
+        'path': '/issuetype'
+    },
+
     # Issue votes
     'list_votes': {
         'path': '/issue/{{issue}}/votes'
@@ -147,6 +163,46 @@ mapping_table = {
         'path': '/issue/{{issue}}/watchers',
         'valid_params': ['username'],
         'status': 204
+    },
+
+    # Projects
+    'get_project': {
+        'path': '/project/{{project}}'
+    },
+    'list_projects': {
+        'path': '/project'
+    },
+
+    # Project components
+    'list_project_components': {
+        'path': '/project/{{project}}/components'
+    },
+
+    # Project statuses
+    'list_project_statuses': {
+        'path': '/project/{{project}}/statuses'
+    },
+
+    # Project versions
+    'list_project_versions': {
+        'path': '/project/{{project}}/versions',
+        'valid_params': ['startAt','maxResults']
+    },
+
+    # Resolutions
+    'get_resolution': {
+        'path': '/resolution/{{resolution}}'
+    },
+    'list_resolutions': {
+        'path': '/resolution'
+    },
+
+    # Statuses
+    'get_status': {
+        'path': '/status/{{status}}'
+    },
+    'list_statuses': {
+        'path': '/status'
     },
 
 }
