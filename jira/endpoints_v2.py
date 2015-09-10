@@ -7,6 +7,17 @@ mapping_table = {
     'content_type': 'application/json',
     'path_prefix': '/rest/api/2',
 
+    # Custom field options
+    'get_custom_field_option': {
+        'path': '/customFieldOption/{{custom_field_option}}'
+    },
+
+
+    # Fields
+    'list_fields': {
+        'path': '/field'
+    },
+
     # Issues
     'get_issue': {
         'path': '/issue/{{issue}}'
