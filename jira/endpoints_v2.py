@@ -18,6 +18,27 @@ mapping_table = {
         'path': '/field'
     },
 
+    # Filters
+    'get_filter': {
+        'path': '/filter/{{filter}}'
+    },
+    'create_filter': {
+        'method': 'POST',
+        'path': '/filter',
+        'status': 201
+    },
+    'update_filter':  {
+        'method': 'PUT',
+        'path': '/filter/{{filter}}',
+        'status': 204
+    },
+    'delete_filter': {
+        'method': 'DELETE',
+        'path': '/filter/{{filter}}',
+        'status': 204
+    },
+
+
     # Issues
     'get_issue': {
         'path': '/issue/{{issue}}'
