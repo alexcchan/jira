@@ -41,7 +41,8 @@ mapping_table = {
 
     # Issues
     'get_issue': {
-        'path': '/issue/{{issue}}'
+        'path': '/issue/{{issue}}',
+        'valid_params': ['fields','expand','properties']
     },
     'create_issue': {
         'method': 'POST',
