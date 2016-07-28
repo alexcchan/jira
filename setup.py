@@ -9,7 +9,6 @@ setup(
 	packages = ['jira'],
 	include_package_data = True,
 	install_requires = ['httplib2', 'simplejson'],
-	license='LICENSE.txt',
 	url = 'https://github.com/alexcchan/jira/tree/master',
 	keywords = 'jira api',
 	description = 'JIRA API v2 Wrapper for Python',
