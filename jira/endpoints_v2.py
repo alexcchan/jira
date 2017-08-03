@@ -69,6 +69,24 @@ mapping_table = {
         'valid_params': ['jql','startAt','maxResults']
     },
 
+    # Groups
+    'get_group': {
+        'path': '/group',
+        'valid_params': ['groupname','expand']
+    },
+    'list_group_users': {
+        'path': '/group/member',
+        'valid_params': ['groupname','includeInactiveUsers','startAt','maxResults']
+    },
+    'pick_groups': {
+        'path': '/groups/picker',
+        'valid_params': ['query','exclude','maxResults','userName']
+    },
+    'pick_groups_and_users': {
+        'path': '/groupuserpicker',
+        'valid_params': ['query','maxResults','showAvatar','fieldId','projectId','issueTypeId','avatarSize']
+    },
+
     # Issue attachments
     'add_attachment': {
         'method': 'POST',
@@ -238,4 +256,33 @@ mapping_table = {
         'path': '/status'
     },
 
+    # Users
+    'get_user': {
+        'path': '/user',
+        'valid_params': ['username','key']
+    },
+    'list_user_groups': {
+        'path': '/user/groups',
+        'valid_params': ['username','key']
+    },
+    'get_user_property': {
+        'path': '/user/properties/{{propertyKey}}',
+        'valid_params': ['username','userKey']
+    },
+    'list_user_properties': {
+        'path': '/user/properties',
+        'valid_params': ['username','userKey']
+    },
+    'pick_users': {
+        'path': '/users/picker',
+        'valid_params': ['query','maxResults','showAvatar','exclude']
+    },
+    'search_users': {
+        'path': '/user/search',
+        'valid_params': ['username','startAt','maxResults','includeActive','includeInactive','property']
+    },
+    'query_users': {
+        'path': '/user/search/query',
+        'valid_params': ['query','startAt','maxResults']
+    },
 }
